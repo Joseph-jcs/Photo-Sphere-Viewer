@@ -60,17 +60,17 @@ The following example contains all types of markers. Click anywhere on the panor
 One of these options is required.
 
 #### `image`
-- type : `string`
+- type: `string`
 
 Path to the image representing the marker. Requires `width` and `height` to be defined.
 
 #### `html`
-- type : `string`
+- type: `string`
 
 HTML content of the marker. It is recommended to define `width` and `height`.
 
 #### `rect`
-- type : `integer[2] | {width: integer, height: integer}`
+- type: `integer[2] | {width: integer, height: integer}`
 
 Size of the rectangle.
 
@@ -86,7 +86,7 @@ rect: {width: 10, height: 5}
 Radius of the circle.
 
 #### `ellipse`
-- type : `integer[2] | {cx: integer, cy: integer}`
+- type: `integer[2] | {cx: integer, cy: integer}`
 
 Radiuses of the ellipse.
 
@@ -97,7 +97,7 @@ ellipse: {cx: 10, cy: 5}
 ```
 
 #### `path`
-- type : `string`
+- type: `string`
 
 Definition of the path (0,0 will be placed at the defined x/y or longitude/latitude).
 
@@ -106,7 +106,7 @@ path: 'M 0 0 L 60 60 L 60 0 L 0 60 L 0 0'
 ```
 
 #### `polygonRad`
-- type : `double[2][]`
+- type: `double[2][]`
 
 Same as above but coordinates are in longitude and latitude.
 
@@ -115,7 +115,7 @@ polygonRad: [[0.2, 0.4], [0.9, 1.1], [1.5, 0.7]]
 ```
 
 #### `polygonPx`
-- type : `integer[2][]`
+- type: `integer[2][]`
 
 Array of points defining the polygon in pixel coordinates on the panorama image.
 
@@ -128,12 +128,12 @@ Texture coordinates are not applicable to cubemaps.
 :::
 
 #### `polylineRad`
-- type : `double[2][]`
+- type: `double[2][]`
 
 Same as `polygonRad` but generates a polyline.
 
 #### `polylinePx`
-- type : `integer[2][]`
+- type: `integer[2][]`
 
 Same as `polygonPx` but generates a polyline.
 
@@ -145,12 +145,12 @@ Texture coordinates are not applicable to cubemaps.
 ## Markers options
 
 #### `id` (required)
-- type : `string`
+- type: `string`
 
 Unique identifier of the marker.
 
 #### `x` & `y` or `latitude` & `longitude` (required)
-- type : `integer` or `double`
+- type: `integer` or `double`
 
 Position of the marker in **texture coordinates** (pixels) or **spherical coordinates** (radians).
 _(This option is ignored for polygons and polylines)_
@@ -160,13 +160,13 @@ Texture coordinates are not applicable to cubemaps.
 :::
 
 #### `width` & `height`
-- type : `integer`
+- type: `integer`
 
 Size of the marker.
 _(This option is ignored for polygons and polylines)_
 
 #### `scale`
-- type : `double | double[]`
+- type: `double | double[]`
 
 Scale factor multiplied by the zoom level. Provide an array of two values for min and max.
 By default the scale is constant.
@@ -178,12 +178,12 @@ scale: [0.5, 1] // at minimum zoom level the marker is half its size at maximum 
 ```
 
 #### `className`
-- type : `string`
+- type: `string`
 
 CSS class(es) added to the marker element.
 
 #### `style`
-- type : `object`
+- type: `object`
 
 CSS properties to set on the marker (background, border, etc.).
 
@@ -195,7 +195,7 @@ style: {
 ```
 
 #### `svgStyle`
-- type : `object`
+- type: `object`
 
 SVG properties to set on the marker (fill, stroke, etc.). _Only for SVG and polygons/polylines markers._
 
@@ -208,21 +208,21 @@ svgStyle: {
 ```
 
 #### `anchor`
-- type : `string`
-- default : `'center center'`
+- type: `string`
+- default: `'center center'`
 
 Defines where the marker is placed toward its defined position. Any CSS position is valid like `bottom center` or `20% 80%`.
 _(This option is ignored for polygons and polylines)_
 
 #### `visible`
-- type : `boolean`
-- default : `true`
+- type: `boolean`
+- default: `true`
 
 Initial visibility of the marker.
 
 #### `tooltip`
-- type : `string | {content: string, position: string}`
-- default : `{content: null, position: 'top center'}`
+- type: `string | {content: string, position: string}`
+- default: `{content: null, position: 'top center'}`
 
 Tooltip content and position. Accepted positions are combinations of `top`, `center`, `bottom` and `left`, `center`, `right` with the exception of `center center`.
 
@@ -236,9 +236,15 @@ tooltip: { // tooltip with custom position
 ```
 
 #### `content`
-- type : `string`
+- type: `string`
 
 HTML content that will be displayed on the side panel when the marker is clicked.
+
+#### `hideList`
+- type: `boolean`
+- default: `false`
+
+Do not show the marker in the markers list.
 
 #### `data`
 - type : `any`
